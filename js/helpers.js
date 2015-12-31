@@ -52,7 +52,7 @@
 		if (!element.parentNode) {
 			return;
 		}
-		if (true) {//(element.parentNode.tagName.toLowerCase() === tagName.toLowerCase()) {
+		if (element.parentNode.tagName.toLowerCase() === tagName.toLowerCase()) {
 			return element.parentNode;
 		}
 		return window.$parent(element.parentNode, tagName);

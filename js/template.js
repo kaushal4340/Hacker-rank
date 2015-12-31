@@ -9,9 +9,9 @@
 	 */
 	function Template() {
 		this.defaultTemplate
-		=	'<input class="toggle" type="checkbox">'
-		+	'<li data-id="{{id}}">'
+		=	'<li data-id="{{id}}">'
 		+		'<div class="view">'
+		+			'<input class="toggle" type="checkbox">'
 		+			'<label>{{title}}</label>'
 		+			'<button class="destroy"></button>'
 		+		'</div>'

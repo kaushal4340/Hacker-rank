@@ -34,7 +34,6 @@
 		});
 
 		that.view.bind('markItem', function (item) {
-			alert("CONTROLLER: item marked event");
 			that.itemMarked(item.id);
 		});
 
@@ -141,21 +140,23 @@
 
 
 	Controller.prototype.itemMarked = function (id) {
-		var that = this;
+		var that = this,
+			dataLength,
+			checkedCount = 0;
 		this.$todoList = qs('#todo-list');
+		this.$todoItemCounter = qs('#todo-count');
 
 		that.model.read(function (data) {
-			console.log("items length : ",data.length);
+			dataLength = data.length;
 		});
 
-		console.log("todo lst : ",this.$todoList);
+		for(var i = 0; i < dataLength; i++) {
+			if (this.$todoList.childNodes[i].childNodes[0].querySelector('.toggle').checked) {
+				checkedCount++;
+			}
+		}
 
-		this.$todoList.find("checkbox").each(function(){
-		    if (this.$todoList.prop('checked')==true){ 
-		        console.log("*");
-		    }
-		});
-
+		this.$todoItemCounter.innerHTML = '<strong>' + (parseInt(dataLength) - parseInt(checkedCount)) + '</strong> items left';
 	}
 
 	/**

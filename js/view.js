@@ -145,7 +145,6 @@
     };
 
     View.prototype.bind = function (event, handler) {
-        console.log("VIEW: bind event : ",event,handler);
         var that = this;
         if (event === 'newTodo') {
             $on(that.$newTodo, 'change', function () {
